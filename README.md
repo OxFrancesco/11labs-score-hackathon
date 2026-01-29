@@ -2,13 +2,23 @@
 
 ## TL;DR
 
-7 Python scripts for ElevenLabs audio generation + 1 bash script combining xAI/Grok news fetching with ElevenLabs TTS for automated daily AI news delivery to Telegram.
+8 self-contained scripts covering ElevenLabs' full audio API + an example combining xAI/Grok with ElevenLabs for automated news delivery.
+
+| Script | Description |
+|--------|-------------|
+| `narrate.py` | Convert text or markdown files to natural speech using premium voices |
+| `sound-effect.py` | Generate sound effects from text prompts (dings, whooshes, ambient sounds) |
+| `voice-convert.py` | Transform any voice recording into a different voice while preserving emotion |
+| `isolate-audio.py` | Remove background noise and isolate speech from noisy recordings |
+| `transcribe.py` | Convert speech to text with word-level timestamps (JSON, SRT, VTT) |
+| `compose-music.py` | Generate music tracks from text descriptions |
+| `design-voice.py` | Create custom AI voices from text descriptions |
+| `xai-news-daily.sh` | Fetch AI news via xAI/Grok → narrate with ElevenLabs → send to Telegram |
 
 ```bash
-./scripts/narrate.py "Hello world" -o hello.mp3          # Text-to-speech
-./scripts/sound-effect.py "door slam" -o slam.mp3        # Sound effects
-./scripts/transcribe.py recording.mp3                     # Speech-to-text
-bash scripts/xai-news-daily.sh                            # AI news → voice → Telegram
+./scripts/narrate.py "Hello world" -o hello.mp3
+./scripts/sound-effect.py "notification ding" -d 1.5 -o ding.mp3
+bash scripts/xai-news-daily.sh
 ```
 
 ---
