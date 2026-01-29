@@ -14,6 +14,7 @@
 | `compose-music.py` | Generate music tracks from text descriptions |
 | `design-voice.py` | Create custom AI voices from text descriptions |
 | `xai-news-daily.sh` | Fetch AI news via xAI/Grok → narrate with ElevenLabs → send to Telegram |
+| `voice-transcribe/` | Clawdbot hook: auto-transcribe incoming voice messages via ElevenLabs |
 
 ```bash
 ./scripts/narrate.py "Hello world" -o hello.mp3
@@ -232,3 +233,35 @@ bash scripts/xai-news-daily.sh
 # Daily at 9 AM CET
 0 8 * * * doppler run --project mao-mao --config prd --command 'bash /path/to/xai-news-daily.sh'
 ```
+
+---
+
+## Voice Transcribe Hook
+
+A [Clawdbot](https://docs.molt.bot) hook that automatically transcribes incoming voice messages.
+
+### What it does
+
+1. Listens for incoming voice/audio messages via `message:received` event
+2. Downloads the audio file
+3. Transcribes using ElevenLabs Scribe v2
+4. Replies with the transcript
+
+### Installation
+
+```bash
+# Copy to your hooks directory
+cp -r hooks/voice-transcribe ~/clawd/hooks/
+
+# Enable the hook
+clawdbot hooks enable voice-transcribe
+
+# Restart the gateway
+clawdbot daemon restart
+```
+
+### Requirements
+
+- `ELEVEN_API_KEY` — ElevenLabs API key
+- `uv` — Python package runner
+- Clawdbot gateway running
