@@ -170,3 +170,42 @@ This skill currently does **not** implement scripts for several ElevenLabs capab
 - **Streaming APIs** (low-latency TTS and streaming STT)
 
 If you want, I can add scripts for any of these missing features.
+
+---
+
+## xAI News Daily
+
+A complete example script that combines ElevenLabs TTS with xAI/Grok for automated AI news delivery.
+
+### What it does
+
+1. **Fetches AI news** from X/Twitter using xAI's `x_search` tool and Grok model
+2. **Generates voice narration** using ElevenLabs (`sag` CLI with `eleven_flash_v2_5`)
+3. **Sends to Telegram** via clawdbot (text summary + audio file)
+
+### Usage
+
+```bash
+# Run directly (requires environment variables)
+doppler run --project mao-mao --config prd --command 'bash scripts/xai-news-daily.sh'
+
+# Or set env vars manually
+export XAI_API_KEY="your-xai-key"
+export ELEVEN_API_KEY="your-elevenlabs-key"
+bash scripts/xai-news-daily.sh
+```
+
+### Requirements
+
+- `XAI_API_KEY` — xAI API key for Grok access
+- `ELEVEN_API_KEY` — ElevenLabs API key
+- `sag` — ElevenLabs CLI tool
+- `clawdbot` — Telegram bot CLI for sending messages
+- `jq`, `curl` — Standard CLI tools
+
+### Cron setup
+
+```bash
+# Daily at 9 AM CET
+0 8 * * * doppler run --project mao-mao --config prd --command 'bash /path/to/xai-news-daily.sh'
+```
