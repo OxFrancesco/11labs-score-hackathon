@@ -1,5 +1,18 @@
 # Eleven Labs Skill
 
+## TL;DR
+
+7 Python scripts for ElevenLabs audio generation + 1 bash script combining xAI/Grok news fetching with ElevenLabs TTS for automated daily AI news delivery to Telegram.
+
+```bash
+./scripts/narrate.py "Hello world" -o hello.mp3          # Text-to-speech
+./scripts/sound-effect.py "door slam" -o slam.mp3        # Sound effects
+./scripts/transcribe.py recording.mp3                     # Speech-to-text
+bash scripts/xai-news-daily.sh                            # AI news → voice → Telegram
+```
+
+---
+
 Generate high-quality audio using the ElevenLabs API. This skill bundles small, UV-based scripts
 that cover the core audio workflows used by ElevenLabs: text-to-speech, sound effects, voice
 conversion, audio isolation, transcription, and music composition.
