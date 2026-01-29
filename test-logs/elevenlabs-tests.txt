@@ -1,0 +1,8 @@
+warning: Ignoring dangling temporary directory: `/opt/anaconda3/lib/python3.12/site-packages/~ympy-1.13.2.dist-info`
+<frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+<frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 37.421s
+
+OK
